@@ -7,15 +7,25 @@ Simulador simple de compra de camisetas de fútbol, desarrollado con **HTML, CSS
 
 ## 🚀 Funcionalidad principal
 
-El simulador permite:
-- Solicitar el nombre del usuario.
-- Mostrar un catálogo de camisetas disponibles.
-- Agregar productos al carrito mediante `prompt`.
-- Calcular el total de la compra.
-- Eliminar productos antes de finalizar.
-- Mostrar un resumen final con el total.
+El simulador funciona íntegramente mediante interacción con HTML, eventos del usuario y manipulación del DOM. Incluye:
 
-Toda la interacción se realiza a través de `alert`, `prompt` y `console.log`.
+Mostrar un catálogo dinámico de remeras de fútbol, generado desde un array de objetos.
+
+Buscar remeras desde un input usando filter() y keyup / Enter / click.
+
+Agregar productos al carrito mediante botones en cada tarjeta del catálogo.
+
+Visualizar el carrito en tiempo real, mostrando productos y subtotales.
+
+Eliminar productos del carrito directamente desde la interfaz.
+
+Calcular el total automáticamente cada vez que se agrega o elimina un ítem.
+
+Guardar el carrito en localStorage, permitiendo que se mantenga al recargar la página.
+
+Restablecer el catálogo al hacer clic en el logo, simulando volver al inicio.
+
+Toda la interacción ocurre en pantalla.
 
 ---
 
