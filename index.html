@@ -1,15 +1,69 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="icon" href="data:,">
-    
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fuerte al Medio - Remeras de Fútbol</title>
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
+
 <body>
-    
-    <script src="./js/script.js"></script>
+  
+  <header>
+    <div class="header-top">
+      <a href="index.html">
+      <img src="assets/favicon.png" alt="Logo Fuerte al Medio" class="logo">
+      </a>
+      <h1 class="titulo">Fuerte al Medio</h1>
+    </div>
+
+    <div class="buscador-container">
+      <input 
+        type="text" 
+        id="buscador" 
+        placeholder="Buscar remera..." 
+        class="buscador"
+      >
+      <button 
+        class="btn-buscar" 
+        id="btnBuscar"
+      > Buscar
+      </button>
+    </div>
+  </header>
+
+  <div id="carrito-contenedor">
+    <h4>Carrito</h4>
+    <div id="carrito"></div>
+    <p id="total">Total: $0</p>
+  </div>
+
+  <main class="catalogo" id="catalogo"></main>
+
+  <footer class="bg-dark text-white py-4 mt-auto">
+    <div class="container text-center">
+
+      <form class="row justify-content-center mb-3">
+        <div class="col-auto">
+          <label for="newsletter" class="col-form-label">Suscribite al newsletter:</label>
+        </div>
+        <div class="col-auto">
+          <input type="email" class="form-control" id="newsletter" placeholder="Tu email">
+        </div>
+        <div class="col-auto">
+          <button type="submit" class="btn btn-enviar btn-primary btn-simple-anim">Enviar</button>
+        </div>
+      </form>
+
+      <p class="mb-0">© 2025 Fuerte al Medio. Todos los derechos reservados.</p>
+
+    </div>
+  </footer>
+
+  <script src="./js/script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
