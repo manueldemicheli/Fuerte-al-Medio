@@ -25,6 +25,8 @@ Guardar el carrito en localStorage, permitiendo que se mantenga al recargar la p
 
 Restablecer el catálogo al hacer clic en el logo, simulando volver al inicio.
 
+Funcionalidades con setTimeout y setInterval.
+
 Toda la interacción ocurre en pantalla.
 
 ---

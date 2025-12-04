@@ -196,3 +196,75 @@ function ejecutarBusqueda() {
 
   mostrarRemeras(resultado);
 }
+
+
+// POPUP INSTAGRAM A LOS 3 SEGUNDOS
+setTimeout(() => {
+  const popup = document.getElementById("popup-instagram");
+  popup.classList.remove("popup-oculto");
+}, 3000);
+
+// CERRAR POPUP 
+document.addEventListener("click", (e) => {
+  if (e.target.id === "cerrar-popup") {
+    document.getElementById("popup-instagram").classList.add("popup-oculto");
+  }
+});
+
+
+// POPUP DE INACTIVIDAD
+
+// Frases futboleras aleatorias
+const frasesInactividad = [
+  "¿Qué hacés? ¡No te quedés mirando, esto no es la platea!",
+  "¡No te vayas que sos nuestra figura!",
+  "Se fueron todos al vestuario… ¿No me digas que vos también?"
+];
+
+let timerInactividad;
+let intervaloFrases;
+const tiempoParaMostrar = 15000; // 15 segundos
+
+// Elementos del popup
+const popupInactividad = document.getElementById("popup-inactividad");
+const mensajeInactividad = document.getElementById("mensaje-inactividad");
+const cerrarInactividad = document.getElementById("cerrar-inactividad");
+
+// Función para mostrar frase aleatoria 
+const mostrarFraseAleatoria = () => {
+  const random = Math.floor(Math.random() * frasesInactividad.length);
+  mensajeInactividad.textContent = frasesInactividad[random];
+};
+
+// Mostrar popup
+const mostrarPopupInactividad = () => {
+  mostrarFraseAleatoria();
+  popupInactividad.style.display = "flex";
+
+  // Cambiar frase cada 5 segundos
+  intervaloFrases = setInterval(() => mostrarFraseAleatoria(), 5000);
+};
+
+// Ocultar popup
+const ocultarPopupInactividad = () => {
+  popupInactividad.style.display = "none";
+  clearInterval(intervaloFrases);
+  reiniciarInactividad();
+};
+
+// Reiniciar contador
+const reiniciarInactividad = () => {
+  clearTimeout(timerInactividad);
+  timerInactividad = setTimeout(() => mostrarPopupInactividad(), tiempoParaMostrar);
+};
+
+// Eventos que resetean inactividad
+document.addEventListener("mousemove", () => reiniciarInactividad());
+document.addEventListener("keypress", () => reiniciarInactividad());
+document.addEventListener("click", () => reiniciarInactividad());
+
+// Botón cerrar
+cerrarInactividad.addEventListener("click", () => ocultarPopupInactividad());
+
+// Iniciar contador al cargar 
+reiniciarInactividad();
