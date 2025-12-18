@@ -101,6 +101,20 @@ function agregarAlCarrito(id) {
   totalCompra += producto.precio;
   console.log("Total actualizado:", totalCompra);
 
+// Notificacion de agregado
+
+  Toastify({
+    text: `${producto.nombre} agregado al carrito`,
+    duration: 2000,
+    gravity: "top",
+    position: "left",
+    style: {
+      background: "green",
+      color: "white",
+    }
+  }).showToast();
+
+
   guardarEnLocalStorage();
   actualizarCarrito();
 }
@@ -268,3 +282,16 @@ cerrarInactividad.addEventListener("click", () => ocultarPopupInactividad());
 
 // Iniciar contador al cargar 
 reiniciarInactividad();
+
+//Notificaciones
+
+document.getElementById("btn-finalizar").addEventListener("click", () => {
+  Swal.fire({
+    title: "¡Gracias por tu compra!",
+    text: "Tu pedido está siendo procesado.",
+    icon: "success",
+    confirmButtonText: "Aceptar",
+    confirmButtonColor: "green"
+  });
+});
+

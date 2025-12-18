@@ -183,6 +183,23 @@ color: white;
   padding-top: 8px;
 }
 
+.btn-finalizar {
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+  background: green;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-finalizar:hover {
+  background: #0c7a0c;
+}
+
 /* Footer */
 
 .btn-enviar {

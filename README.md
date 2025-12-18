@@ -1,6 +1,6 @@
 # ⚽ Fuerte al Medio – Simulador de e-commerce
 
-Proyecto realizado como **Preentrega N°2 del curso de JavaScript (Coderhouse)**.  
+Proyecto realizado como **Entrega Final del curso de JavaScript (Coderhouse)**.  
 Simulador simple de compra de camisetas de fútbol, desarrollado con **HTML, CSS y JavaScript**.
 
 ---
