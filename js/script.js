@@ -4,9 +4,6 @@
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 let totalCompra = JSON.parse(localStorage.getItem("totalCompra")) || 0;
 
-console.log("Carrito cargado desde LocalStorage:", carrito);
-console.log("Total inicial:", totalCompra);
-
 // CATÁLOGO DE REMERAS
 
 const remerasDisponibles = [
@@ -46,7 +43,6 @@ const remerasDisponibles = [
 const catalogo = document.getElementById("catalogo");
 
 function mostrarRemeras(lista) {
-  console.log(" Renderizando catálogo con:", lista.length, "remeras");
 
   catalogo.innerHTML = "";
 
@@ -73,13 +69,11 @@ mostrarRemeras(remerasDisponibles);
 document.addEventListener("click", (e) => {
   if (e.target.classList.contains("btn-agregar")) {
     const id = parseInt(e.target.dataset.id);
-    console.log("Click en AGREGAR - ID:", id);
     agregarAlCarrito(id);
   }
 
   if (e.target.classList.contains("btn-eliminar")) {
     const id = parseInt(e.target.dataset.id);
-    console.log("Click en ELIMINAR - ID:", id);
     eliminarProducto(id);
   }
 });
@@ -92,14 +86,11 @@ function agregarAlCarrito(id) {
 
   if (existente) {
     existente.cantidad++;
-    console.log(`Se aumentó cantidad de ${producto.nombre}. Cantidad:`, existente.cantidad);
   } else {
     carrito.push({ ...producto, cantidad: 1 });
-    console.log(`Producto agregado al carrito: ${producto.nombre}`);
   }
 
   totalCompra += producto.precio;
-  console.log("Total actualizado:", totalCompra);
 
 // Notificacion de agregado
 
@@ -109,8 +100,8 @@ function agregarAlCarrito(id) {
     gravity: "top",
     position: "left",
     style: {
-      background: "green",
-      color: "white",
+    background: "green",
+    color: "white",
     }
   }).showToast();
 
@@ -122,7 +113,6 @@ function agregarAlCarrito(id) {
 // RENDER DEL CARRITO
 
 function actualizarCarrito() {
-  console.log("Renderizando carrito. Cantidad de items:", carrito.length);
 
   const divCarrito = document.getElementById("carrito");
   divCarrito.innerHTML = "";
@@ -150,19 +140,13 @@ function eliminarProducto(id) {
 
   if (!producto) return;
 
-  console.log(`Eliminando ${producto.nombre}`);
-
   totalCompra -= producto.precio;
 
   if (producto.cantidad > 1) {
     producto.cantidad--;
-    console.log(`Se redujo cantidad de ${producto.nombre}. Nueva cantidad:`, producto.cantidad);
   } else {
     carrito = carrito.filter(p => p.id !== id);
-    console.log(`Producto eliminado del carrito: ${producto.nombre}`);
   }
-
-  console.log("Total actualizado:", totalCompra);
 
   guardarEnLocalStorage();
   actualizarCarrito();
@@ -173,7 +157,6 @@ function eliminarProducto(id) {
 function guardarEnLocalStorage() {
   localStorage.setItem("carrito", JSON.stringify(carrito));
   localStorage.setItem("totalCompra", JSON.stringify(totalCompra));
-  console.log("Guardado en LocalStorage");
 }
 
 // CARGAR CARRITO AL INICIAR
@@ -200,13 +183,9 @@ buscador.addEventListener("keydown", (e) => {
 function ejecutarBusqueda() {
   const texto = buscador.value.toLowerCase().trim();
 
-  console.log("Buscando:", texto);
-
   const resultado = remerasDisponibles.filter(remera =>
     remera.nombre.toLowerCase().includes(texto)
   );
-
-  console.log("Resultados encontrados:", resultado.length);
 
   mostrarRemeras(resultado);
 }
